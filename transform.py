@@ -35,4 +35,9 @@ SH_filter = ['CAAR','H','CKNC','CLNC','CAPU','CAPA']
 df['paint_type'] = np.where(df['category'].isin(SG_filter), 'SG',
                             np.where(df['category'].isin(SH_filter), 'SH', 'Other'))
 
+df['qc_num'] = df['qc'].str.extract(r'(\d+)')
+df['qc_num'] = df['qc_num'].astype(int)
+df['redundant'] = df['estimated_quantity'] % df['qc_num']
+
+
 df.to_excel(r'color_mixing.xlsx', index=False)
