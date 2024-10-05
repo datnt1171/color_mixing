@@ -5,7 +5,7 @@ from dash import html, page_container
 # Initialize the Dash app
 app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-PLOTLY_LOGO = "https://scontent.fsgn21-1.fna.fbcdn.net/v/t39.30808-6/230984148_150696287177804_977364881514081647_n.png?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=7Sm1heTp5_QQ7kNvgH20GJ3&_nc_ht=scontent.fsgn21-1.fna&oh=00_AYBFYge9aGAoTW7NDm6-hBsDAV39-P_EUNfBU-hKXdmbKA&oe=66FD8C54"
+PLOTLY_LOGO = "/assets/logo.png"
 
 # Main Navbar for department selection
 
@@ -33,16 +33,51 @@ navbar = dbc.Navbar(
             ],
             nav=True,
             in_navbar=True,
-            label="Production",
+            label="Color Mixing",
         ),
+        
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("Daily Report", href="/warehouse_daily"),
+                dbc.DropdownMenuItem("Weekly Report", href="/warehouse_weekly"),
+                dbc.DropdownMenuItem("Drilldown", href="/warehouse_drilldown"),
                 
             ],
             nav=True,
             in_navbar=True,
             label="Wareshoue",
+        ),
+        
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("Weekly Report", disabled=True, href="#"),
+                dbc.DropdownMenuItem("Drilldown", disabled=True, href="#"),
+                
+            ],
+            nav=True,
+            in_navbar=True,
+            label="Sales",
+        ),
+        
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("Weekly Report",disabled=True, href="#"),
+                dbc.DropdownMenuItem("Drilldown", disabled=True, href="#"),
+                
+            ],
+            nav=True,
+            in_navbar=True,
+            label="Production",
+        ),
+        
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("Weekly Report", disabled=True, href="#"),
+                dbc.DropdownMenuItem("Drilldown", disabled=True, href="#"),
+                
+            ],
+            nav=True,
+            in_navbar=False,
+            label="RD",
         ),
         
     ]),
